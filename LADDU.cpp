@@ -1,64 +1,49 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
-    
 int main() {
-	// your code goes here
-	int ladddu =0;
-  int a,CONTEST_WON_rank,BUG_FOUND_severity;
-  string country,CONTEST_WON,BUG_FOUND,CONTEST_HOSTED,TOP_CONTRIBUTOR;
-  
-	int n;
-	cin>>n;
-	int CONTEST_WON(){
-        if(CONTEST_WON == "CONTEST_WON"){
-            if(CONTEST_WON_rank<20){
-                laddu = 300+(20-CONTEST_WON_rank);
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        string origin;
+        cin>>origin;
+        int i,sum=0;
+        for(i=0;i<n;i++){
+            string s;
+            cin>>s;
+            if(s=="TOP_CONTRIBUTOR"){
+                sum=sum+300;
             }
-            else{
-                laddu = 300;
+            if(s=="CONTEST_HOSTED"){
+                sum=sum+50;
+            }
+            else if(s=="BUG_FOUND"){
+                int num;
+                cin>>num;
+                sum=sum+num;
+            }
+            else if(s=="CONTEST_WON"){
+                int rank;
+                cin>>rank;
+                if(rank<20){
+                    sum=sum+300+20-rank;
+                }
+                else{
+                    sum=sum+300;
+                }
             }
         }
-    }
-    int TOP_CONTRIBUTOR(){
-        cin>>TOP_CONTRIBUTOR;
-        if(TOP_CONTRIBUTOR == "TOP_CONTRIBUTOR"){
-            laddu = laddu + 300;
+        if(origin=="INDIAN"){
+            cout<<sum/200<<endl;
         }
-    }
-    int BUG_FOUND(){
-        cin>>BUG_FOUND>>BUG_FOUND_severity;
-        if(BUG_FOUND == "BUG_FOUND"){
-            laddu = laddu +BUG_FOUND_severity;
+        else{
+            cout<<sum/400<<endl;
         }
+        
     }
-    int CONTEST_HOSTED(){
-        cin>>CONTEST_HOSTED;
-        if(CONTEST_HOSTED == "CONTEST_HOSTED"){
-            laddu = laddu +50;
-        }
-    }
-    
-	while(n--){
-	    cin>>a>>country;
-	if(a ==4){
-        int CONTEST_WON();
-        TOP_CONTRIBUTOR();
-        BUG_FOUND();
-        CONTEST_HOSTED();
-    }
-    else if(a ==3){
-        CONTEST_WON();
-        TOP_CONTRIBUTOR();
-        BUG_FOUND();
-    }
-    else if(a ==2){
-        CONTEST_WON();
-        TOP_CONTRIBUTOR();
-    }
-    else{
-        CONTEST_WON();
-    }
-        cout<<laddu;
 	return 0;
 }
+
